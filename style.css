@@ -1,40 +1,58 @@
+
+/* Universal Selector */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Colour and Typography System */
+:root {
+    --brand: #7b4b5a;
+    --ink: #333333;
+    --background: #fff7f9;
+    --white: #ffffff;
+    --border: #e4cdd3;
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff7f9;
-    color: #333;
+    background-color: var(--background);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Header */
-
 header {
-    background-color: #7b4b5a;
-    color: white;
-    padding: 25px 40px;
-
+    background-color: var(--brand);
+    color: var(--white);
+    padding: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 15px;
 }
 
 header h1 {
-    margin: 0;
     font-size: 28px;
 }
 
 /* Navigation */
-
 nav {
     display: flex;
-    gap: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -42,59 +60,55 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Main */
-
+/* Main Content */
 main {
     max-width: 1000px;
     margin: auto;
-    padding: 40px 30px;
+    padding: 25px 15px;
 }
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 section h2 {
-    color: #7b4b5a;
+    color: var(--brand);
     margin-bottom: 15px;
 }
 
-/* About */
-
+/* About Section */
 #about {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 25px;
     border-radius: 12px;
 }
 
-/* Projects */
-
+/* Projects Grid */
 .projects {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
 /* Project Cards */
-
 .card {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 22px;
     border-radius: 12px;
-    border: 1px solid #e4cdd3;
+    border: 1px solid var(--border);
 }
 
 .card h3 {
-    color: #7b4b5a;
-    margin-top: 0;
+    color: var(--brand);
+    margin-bottom: 10px;
 }
 
 .card p {
-    line-height: 1.5;
+    margin-bottom: 12px;
 }
 
 .card a {
-    color: #a45d72;
+    color: var(--brand);
     text-decoration: none;
 }
 
@@ -102,29 +116,44 @@ section h2 {
     text-decoration: underline;
 }
 
-/* Contact */
-
-#contact {
-    background-color: #ffffff;
-    padding: 25px;
+/* Contact Footer */
+footer {
+    background-color: var(--white);
+    padding: 30px 25px;
     border-radius: 12px;
 }
 
-/* Mobile */
+footer h2 {
+    color: var(--brand);
+    margin-bottom: 15px;
+}
 
-@media (max-width: 700px) {
+footer a {
+    color: var(--brand);
+}
+
+/* Tablet and Desktop Responsive Design */
+@media (min-width: 700px) {
 
     header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 25px 40px;
     }
 
     main {
-        padding: 25px 15px;
+        padding: 40px 30px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Desktop Screens */
+@media (min-width: 1000px) {
+
+    .projects {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
